@@ -38,7 +38,7 @@
 
 </head>
 
-<body class="text-(--text) font-(--font-sans)">
+<body class="min-h-screen bg-linear-[180deg,_#807ECE_0%,_#8E7ECE_100%] text-(--text) font-(--font-sans)">
   <div id="root"></div>
 
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -137,7 +137,6 @@
           flex flex-col gap-[1.625rem] w-[22.25rem]
           pt-14 px-8 pb-8 
           `}>
-
           <CalculatorDisplay operation="1+1" result="2" />
           <div className="flex flex-col gap-3">
             <div className="flex gap-3">
@@ -169,6 +168,22 @@
               <Button className="w-16 h-16" variant="primary">=</Button>
             </div>
           </div>
+        </Card>
+      )
+    }
+
+    function OperationHistory() {
+      return (
+        <Card className="py-10 px-8 w-full">
+          <Text as="h1" variant="heading" className="mb-4">
+            Histoórico de Operações
+          </Text>
+
+          <ul className="flex flex-col gap-3">
+            <Text as="li">1 + 1 = 2</Text>
+            <Text as="li">2 + 3 + 1 = 6</Text>
+            <Text as="li">1 + 3 = 5</Text>
+          </ul>
 
         </Card>
       )
@@ -176,8 +191,14 @@
 
     function App() {
       return (
-        <main className="py-28 px-4">
+        <main className={`
+          py-28 px-4 sm:px-10
+          flex flex-col sm:flex-row
+          items-center sm:items-stretch
+          gap-2
+          `}>
           <Calculator />
+          <OperationHistory />
         </main>
       )
     }
